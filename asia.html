@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>XMLHttpRequest Example</title>
+    <style>
+        h1 {
+            color: rgb(49, 19, 139);
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+    <h1> Printing asian countries</h1>
+    </p>
+    <script>
+
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://restcountries.com/v3.1/all");
+        request.send();
+        request.onload = function () {
+            var result = JSON.parse(request.response);
+            var res = result.filter((ele) => ele.continents[0] == 'Asia');
+            console.log(res);
+        }
+
+    </script>
+</body>
+
+</html>
